@@ -17,6 +17,7 @@ Install dependency:
 Run project in Poetry Envirnoment, to see if it is running outside a container:
 
     poetry run uvicorn app.main:app --host 0.0.0.0 --port 8000
+    (this captures the console)
 
 Open in Browser:
 
@@ -66,6 +67,10 @@ https://docs.docker.com/engine/reference/run/
 ```bash
 docker run -d --name dev-cont1 -p 8000:8000 my-dev-image
 ```
+`-d` will background process detach<br>
+maping of the ports<br>
+port `-p` 8000(host port):8000(container port)<br>
+host port is dynamic we can change while container port is fixed
 
 **Check in browser:**
 
