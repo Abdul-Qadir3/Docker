@@ -1,7 +1,5 @@
 # Containerizing the API
 
-We will take the microservice created in step10_microserice_db and containerize it.
-
 ## Let's First Run the app without Docker to test if everything is working
 
 We have updated our toml file using this as a base:
@@ -47,7 +45,12 @@ docker version
 ```bash
 docker build -f Dockerfile.dev -t my-dev-image .
 ```
-
+    
+    docker build: This command is used to build a Docker image from a Dockerfile.
+    -f Dockerfile.dev: This specifies the Dockerfile to use for building the image. In this case, it's named Dockerfile.dev. If not specified, Docker looks for a file named Dockerfile by default.
+    -t my-dev-image: This assigns a tag to the Docker image being built. In this case, the tag is "my-dev-image". Tags are used to identify and reference Docker images.
+    .: This specifies the build context, which is the path to the directory containing the Dockerfile and any other files needed for building the image. In this case, "." refers to the current directory.
+    
 **Check Images:**
 
 ```bash
@@ -59,7 +62,10 @@ docker images
 ```bash
 docker inspect my-dev-image
 ```
-
+**Running the Container In LocalSystem:**
+```bash
+poetry run uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
 **Running the Container for Dev:**
 
 https://docs.docker.com/engine/reference/run/
@@ -75,6 +81,7 @@ host port is dynamic we can change while container port is fixed
 **Check in browser:**
 
 http://localhost:8000
+
 
 **container logs**
 ```bash
