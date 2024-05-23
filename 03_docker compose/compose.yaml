@@ -1,11 +1,9 @@
-version: '1.0.0'
-
 name: "myapi"
+version: '1.0.0'
 services:
   api:
     build:
-      context: ./
+      context: ./helloworld
       dockerfile: Dockerfile
-    container_name: my_devcontainer
-    expose:
+    ports:
       - "8000:8000"
