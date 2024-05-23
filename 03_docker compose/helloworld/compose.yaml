@@ -1,0 +1,11 @@
+version: '1.0.0'
+
+name: "myapi"
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: my_devcontainer
+    expose:
+      - "8000:8000"
