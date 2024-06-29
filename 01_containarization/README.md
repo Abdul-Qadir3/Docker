@@ -144,6 +144,56 @@ docker build -f Dockerfile.prod -t my-prod-image-optimized .
 docker run -d -p 8000:8000 my-prod-image-optimized
 ```
 
+**Connect to the container `bash`**
+
+```bash
+docker run -it -p 8000:8000 codecoun1:1.0.0 /bin/bash
+```
+
+**List of files in container**
+
+```bash
+ls
+```
+
+**To chech the code in a specific container file**
+
+```bash
+cat main.py
+```
+
+**To exite container**
+
+```bash
+exit
+```
+
+**Exits container without stoping**
+
+```bash
+CNTRL + P + Q
+```
+**Intract with the running Container:**
+
+```bash
+docker exec -it dev-cont1 /bin/bash
+```
+
+**Use Container to built Image**
+
+```bash
+docker commit dev-cont1 new_image_name
+```
+
+### CMD and ENTRYPOINT
+CMD can be overwrite while ENTRYPOINT cant be overwrite
+
+**Adding command to the container that has overwritten in CMD**
+
+```bash
+docker run -it -p 8000:8000 imagefromcontainer /bin/bash -c "poetry run uvicorn helloworld.main:app --host 0.0.0.0"
+```
+
 Additional References:
 
 https://www.jeffastor.com/blog/testing-fastapi-endpoints-with-docker-and-pytest/
